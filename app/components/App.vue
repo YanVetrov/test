@@ -1,6 +1,7 @@
 <template>
     <Page>
-        <ActionBar @tap="getList" title="Welcome" android:flat="true"/>
+
+        <ActionBar title="AZARA" android:flat="true"/>
         <TabView android:tabBackgroundColor="#53ba82"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
@@ -51,10 +52,16 @@
             </TabViewItem>
             <TabViewItem title="Wallets">
                 <GridLayout columns="*" rows="*">
+                    <Label class="message" :text="msg" col="0" row="0"/>
+                </GridLayout>
+            </TabViewItem>
+            <TabViewItem title="Shops">
+                <GridLayout columns="*" rows="*">
                     <Label @tap="$navigateTo(login)" class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
             <TabViewItem title="Options">
+=
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>

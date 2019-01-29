@@ -3,6 +3,6 @@
     "v8Flags": "--expose_gc"
   },
   "main": "main",
-  "name": "crypto-app",
+  "name": "AZARA",
   "version": "0.0.1"
 }
