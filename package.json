@@ -4,6 +4,16 @@
   "description": "crypto-app",
   "author": "yanvetrov <redchilik@gmail.com>",
   "license": "UNLICENCED",
+  "scripts": {
+    "build-ios": "tns build ios --bundle",
+    "build-android": "tns build android --bundle",
+    "run-ios": "tns run ios --bundle",
+    "run-android": "tns run android --bundle",
+    "debug-ios": "tns debug ios --bundle",
+    "debug-android": "tns debug android --bundle",
+    "emulator-ios": "tns run ios --bundle --emulator",
+    "emulator-android": "tns run android --bundle --emulator"
+  },
   "nativescript": {
     "id": "org.nativescript.application",
     "tns-ios": {
@@ -13,7 +23,7 @@
       "version": "5.0.0"
     }
   },
-  "dependencies": { 
+  "dependencies": {
     "vuex": "^3.0.1",
     "@vue/devtools": "5.0.0-beta.3",
     "nativescript-socket.io": "^0.9.0",
