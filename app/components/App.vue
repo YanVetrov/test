@@ -61,7 +61,7 @@
                 </GridLayout>
             </TabViewItem>
             <TabViewItem title="Options">
-=
+
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>
