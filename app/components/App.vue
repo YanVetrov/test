@@ -1,21 +1,21 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!" android:flat="true"/>
+        <ActionBar title="AZARA" android:flat="true"/>
         <TabView android:tabBackgroundColor="#53ba82"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
-            <TabViewItem title="Tab 1">
+            <TabViewItem title="Wallets">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" :text="msg" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
-            <TabViewItem title="Tab 2">
+            <TabViewItem title="Shops">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
-            <TabViewItem title="Tab 3">
+            <TabViewItem title="Settings">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>
@@ -28,7 +28,7 @@
   export default {
     data() {
       return {
-        msg: 'Hello World!'
+        msg: 'AZARA'
       }
     }
   }

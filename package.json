@@ -1,13 +1,13 @@
 {
-  "name": "crypto-app",
+  "name": "com.azara",
   "version": "0.0.1",
-  "description": "crypto-app",
+  "description": "AZARA",
   "author": "yanvetrov <redchilik@gmail.com>",
   "license": "UNLICENCED",
   "scripts": {
     "build-ios": "tns build ios --bundle",
     "build-android": "tns build android --bundle",
-    "run-ios": "tns run ios --bundle",
+    "run-ios": "tns run ios --bundle --teamId NZZN8LWEAY",
     "run-android": "tns run android --bundle",
     "debug-ios": "tns debug ios --bundle",
     "debug-android": "tns debug android --bundle",
@@ -15,7 +15,7 @@
     "emulator-android": "tns run android --bundle --emulator"
   },
   "nativescript": {
-    "id": "org.nativescript.application",
+    "id": "com.azara",
     "tns-ios": {
       "version": "5.0.0"
     },
