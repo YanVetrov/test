@@ -3,7 +3,7 @@
         <FlexboxLayout class="page">
             <StackLayout class="form">
                 <Image class="logo"></Image>
-                <Label class="header" :text="'Crypto Wallet'"></Label>
+                <Label class="header" :text="'AZARA'"></Label>
 
                 <StackLayout class="input-field">
                     <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
