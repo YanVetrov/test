@@ -1,6 +1,5 @@
-# Crypto-app
-
-> crypto-app
+# AZARA
+> AZARA
 
 ## Usage
 
