@@ -1,21 +1,60 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!" android:flat="true"/>
+        <ActionBar @tap="getList" title="Welcome" android:flat="true"/>
         <TabView android:tabBackgroundColor="#53ba82"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
-            <TabViewItem title="Tab 1">
+            <TabViewItem title="Transactions">
+
+                <StackLayout>
+                    <SearchBar hint="Search" textFieldBackgroundColor="silver"/>
+
+                    <ScrollView>
+
+
+                        <StackLayout>
+
+
+
+
+                            <FlexboxLayout flexWrap="wrap">
+                                <FlexboxLayout v-if="load" class="block list" v-for="s in data" flexDirection="row">
+                                    <Label class="background" color="#53ba82" :text="s.currency"/>
+                                    <FlexboxLayout flexDirection="column" width="80%">
+                                        <Label :text="Number(s.amount)" class="song"/>
+                                        <Label :text="s.type" class="signer"/>
+                                    </FlexboxLayout>
+                                </FlexboxLayout>
+                                <FlexboxLayout v-if="load" class="block list" v-for="s in data" flexDirection="row">
+                                    <Label class="background" color="#53ba82" :text="s.currency"/>
+                                    <FlexboxLayout flexDirection="column" width="80%">
+                                        <Label :text="Number(s.amount)" class="song"/>
+                                        <Label :text="s.type" class="signer"/>
+                                    </FlexboxLayout>
+                                </FlexboxLayout>
+                                <FlexboxLayout v-if="load" class="block list" v-for="s in data" flexDirection="row">
+                                    <Label class="background" color="#53ba82" :text="s.currency"/>
+                                    <FlexboxLayout flexDirection="column" width="80%">
+                                        <Label :text="Number(s.amount)" class="song"/>
+                                        <Label :text="s.type" class="signer"/>
+                                    </FlexboxLayout>
+                                </FlexboxLayout>
+                                <ActivityIndicator row="1" #activityIndicator :busy="!load" width="100" height="100"
+                                                   class="activity-indicator"></ActivityIndicator>
+
+
+                            </FlexboxLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </TabViewItem>
+            <TabViewItem title="Wallets">
                 <GridLayout columns="*" rows="*">
-                    <Label class="message" :text="msg" col="0" row="0"/>
+                    <Label @tap="$navigateTo(login)" class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
-            <TabViewItem title="Tab 2">
-                <GridLayout columns="*" rows="*">
-                    <Label class="message" text="Tab 2 Content" col="0" row="0"/>
-                </GridLayout>
-            </TabViewItem>
-            <TabViewItem title="Tab 3">
+            <TabViewItem title="Options">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>
@@ -25,16 +64,30 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        msg: 'Hello World!'
-      }
+    import login from './login'
+    import {mapActions, mapGetters} from 'vuex'
+
+    export default {
+        data() {
+            return {
+                msg: 'Hello World!',
+                login
+            }
+        },
+        computed: {
+            ...mapGetters('wallets', ['wallets']),
+            ...mapGetters('transactions', ['load', 'data', 'current_page', 'total_pages']),
+        },
+        methods: {
+            ...mapActions('transactions', ['getList']),
+        },
+        mounted() {
+            this.getList({})
+        }
     }
-  }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     ActionBar {
         background-color: #53ba82;
         color: #ffffff;
@@ -46,4 +99,61 @@
         font-size: 20;
         color: #333333;
     }
+
+    @import '~nativescript-theme-core/scss/skins/light/index';
+    @import '~nativescript-theme-core/scss/index';
+    .icon {
+        font-family: 'icomoon';
+        font-size: 38;
+    }
+
+    .block {
+        color: black;
+        margin: 15;
+        width: 230px;
+        height: 170vh;
+        transition: transform .3s;
+    }
+
+    .background {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 70%;
+    }
+
+    .signer {
+        height: 15%;
+    }
+
+    .song {
+        height: 15%;
+    }
+
+    .list {
+        width: 100%;
+        height: 120px;
+        flex-direction: row;
+        border-width: 0 0 1 0;
+        border-color: black;
+    }
+
+    .list .background {
+        width: 20%;
+        height: 100%;
+        margin: 5;
+        border-radius: 2;
+    }
+
+    .list .signer {
+        width: 100%;
+        height: 50%;
+    }
+
+    .list .song {
+        font-weight: bold;
+        width: 100%;
+        height: 50%;
+    }
+
+
 </style>
