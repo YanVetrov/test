@@ -7,7 +7,8 @@ import user from './store/user'
 import * as wallets from './store/wallets'
 import * as transactions from './store/transactions'
 import * as merchants from './store/merchants'
-
+import VueDevtools from 'nativescript-vue-devtools'
+Vue.use(VueDevtools, { host: '192.168.1.42' })
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
 require( "nativescript-localstorage" );
 import rest from './plugins/rest'
