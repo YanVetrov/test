@@ -14,10 +14,10 @@ export const mutations = {
 export const actions = {
     async getList({ commit }, { currency = "USD", page = "1", limit = "10" }) {
         commit('load', false);
-        let [err, res] = await this.app.$rest.to('user/wallet/get', { currency, page, limit });
+        let [err, res] = await this._vm.$rest.to('user/wallet/get', { currency, page, limit });
         commit('load', true);
-        console.log(err, res);
-        if (!err && res && res.success) {
+        console.log(err, res.data.wallets);
+        if (!err && res) {
             commit('data', res.data.wallets)
         };
     },

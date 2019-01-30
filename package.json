@@ -1,5 +1,5 @@
 {
-  "name": "com.azara",
+  "name": "org.nativescript.application",
   "version": "0.0.1",
   "description": "AZARA",
   "author": "yanvetrov <redchilik@gmail.com>",
@@ -16,7 +16,7 @@
     "emulator-android": "tns run android --bundle --emulator"
   },
   "nativescript": {
-    "id": "com.azara",
+    "id": "org.nativescript.application",
     "tns-ios": {
       "version": "5.0.0"
     },
@@ -27,10 +27,13 @@
   "dependencies": {
     "await-to-js": "^2.1.1",
     "axios": "^0.18.0",
+    "nativescript-cardview": "^3.1.1",
     "nativescript-localstorage": "^2.0.0",
     "nativescript-socket.io": "^0.9.0",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-toast": "^1.4.6",
+    "nativescript-ui-listview": "^5.1.1",
+    "nativescript-ui-sidedrawer": "^5.1.0",
     "nativescript-vue": "^2.0.0",
     "nativescript-vue-devtools": "^1.0.0",
     "net": "^1.0.2",
