@@ -35,7 +35,7 @@
         <StackLayout row="2">
 
             <CardView v-for="item in data" class="card" elevation="40" radius="2"
-                      ios:shadowRadius="1">
+                      ios:shadowRadius="1" :key="'cur'+item.currency">
                 <StackLayout class="card-layout">
                     <FlexboxLayout justifyContent="space-between">
                             <Label fontWeight="bold" :text="item.type"/>

@@ -3,7 +3,7 @@
         <StackLayout class="home-panel">
             <button class="butt" background="#53bebe" width="90%" fontSize="20" fontWeight="bold" text="+" row="1" col="1"/>
             <CardView v-for="item in list" class="card" elevation="40" radius="10"
-                      ios:shadowRadius="3">
+                      ios:shadowRadius="3"  :key="'id__'+item.name">
                 <StackLayout class="card-layout">
                     <Label class="h1" :text="item.name"/>
                     <Label class="body" textWrap="true" :text="'FEE: '+item.fee"/>

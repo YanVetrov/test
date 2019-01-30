@@ -10,27 +10,25 @@ import * as merchants from './store/merchants'
 import VueDevtools from 'nativescript-vue-devtools'
 Vue.use(VueDevtools, { host: '192.168.1.42' })
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
-require( "nativescript-localstorage" );
-import rest from './plugins/rest'
-Vue.use(Vuex)
-if(TNS_ENV !== 'production') {
+require("nativescript-localstorage");
+
+Vue.use(Vuex);
+if (TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
 const store = new Vuex.Store({
-    modules:{
-        counter,
-        user,
-        wallets,
-        transactions,
-        merchants
-    }
-})
+  modules: {
+    counter,
+    user,
+    wallets,
+    transactions,
+    merchants
+  }
+});
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 
-
 new Vue({
-    store,
+  store,
   render: h => h('frame', [h(App)])
-}).$start()
-
+}).$start();
