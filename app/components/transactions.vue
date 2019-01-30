@@ -11,7 +11,7 @@
 
 
                 <FlexboxLayout flexWrap="wrap">
-                    <FlexboxLayout v-if="load" class="block list" v-for="s in data" flexDirection="row">
+                    <FlexboxLayout v-if="load" class="block list" v-for="s in data" :key="'c2_'+s.currency" flexDirection="row">
                         <Label class="background" color="#53ba82" :text="s.currency"/>
                         <FlexboxLayout flexDirection="column" width="80%">
                             <Label :text="Number(s.amount)" class="song"/>

@@ -1,7 +1,7 @@
 <template>
     <ScrollView>
         <StackLayout class="home-panel">
-            <CardView v-for="item in data" class="card" elevation="40" radius="10"
+            <CardView v-for="item in data" :key="'n1'+item.name" class="card" elevation="40" radius="10"
                       ios:shadowRadius="3">
                 <StackLayout class="card-layout">
                     <Label class="h1" :text="item.name=='Bitcoin'?'₿ ' +item.name:'$ '+item.name"/>
