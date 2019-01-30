@@ -8,7 +8,7 @@
     "build-ios": "tns build ios --bundle",
     "appstote-ios": "tns appstore upload www.clsa.ru@gmail.com uhmu-brgj-tcns-mnzo",
     "build-android": "tns build android --bundle",
-    "run-ios": "tns run ios --bundle1",
+    "run-ios": "tns run ios --bundle",
     "run-android": "tns run android --bundle",
     "debug-ios": "tns debug ios --bundle",
     "debug-android": "tns debug android --bundle",
