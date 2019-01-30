@@ -1,11 +1,12 @@
 import Vue from 'nativescript-vue'
-import App from './components/login'
+import App from './pages/login'
 import VueDevtools from 'nativescript-vue-devtools'
 import Vuex from 'vuex'
 import counter from './state'
 import user from './store/user'
 import * as wallets from './store/wallets'
 import * as transactions from './store/transactions'
+Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
 require( "nativescript-localstorage" );
 import rest from './plugins/rest'
 Vue.use(Vuex)
