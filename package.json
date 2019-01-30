@@ -8,7 +8,7 @@
     "build-ios": "tns build ios --bundle",
     "appstote-ios": "tns appstore upload www.clsa.ru@gmail.com uhmu-brgj-tcns-mnzo",
     "build-android": "tns build android --bundle",
-    "run-ios": "tns run ios --bundle --teamId NZZN8LWEAY",
+    "run-ios": "tns run ios --bundle1",
     "run-android": "tns run android --bundle",
     "debug-ios": "tns debug ios --bundle",
     "debug-android": "tns debug android --bundle",
@@ -18,10 +18,10 @@
   "nativescript": {
     "id": "com.azara",
     "tns-ios": {
-      "version": "5.0.0"
+      "version": "5.1.1"
     },
     "tns-android": {
-      "version": "5.0.0"
+      "version": "5.1.0"
     }
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "nativescript-vue": "^2.0.0",
     "nativescript-vue-devtools": "^1.0.0",
     "net": "^1.0.2",
-    "tns-core-modules": "^5.0.2",
+    "tns-core-modules": "^5.1.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
