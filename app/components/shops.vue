@@ -1,17 +1,23 @@
 <template>
     <ScrollView>
         <StackLayout class="home-panel">
-            <CardView v-for="item in data" class="card" elevation="40" radius="10"
+            <button class="butt" background="#53bebe" width="90%" fontSize="20" fontWeight="bold" text="+" row="1" col="1"/>
+            <CardView v-for="item in list" class="card" elevation="40" radius="10"
                       ios:shadowRadius="3">
                 <StackLayout class="card-layout">
-                    <Label class="h1" :text="item.name=='Bitcoin'?'₿ ' +item.name:'$ '+item.name"/>
-                    <Label class="body" textWrap="true" :text="item.balance + ' ' + item.symbol"/>
+                    <Label class="h1" :text="item.name"/>
+                    <Label class="body" textWrap="true" :text="'FEE: '+item.fee"/>
+                    <Label class="body" textWrap="true" :text="item.domain"/>
+                    <FlexboxLayout>
+                        <button class="butt" background="#53ba82" text="Edit" row="1" col="1"/>
+                        <button class="butt" background="#FF5544" text="Delete" row="1" col="1"/>
 
+                    </FlexboxLayout>
                 </StackLayout>
 
             </CardView>
-            <Label v-if="data.length<1" class="p-20" textWrap="true"
-                   text="Wallets not found, sorry."
+            <Label v-if="list.length<1" class="p-20" textWrap="true"
+                   text="Merchants not found, sorry."
             />
         </StackLayout>
     </ScrollView>
@@ -24,15 +30,14 @@
     export default {
         data() {
             return {
-                msg: 'Hello World!',
                 login
             }
         },
         computed: {
-            ...mapGetters('wallets', ['load', 'data']),
+            ...mapGetters('merchants', ['load', 'list']),
         },
         methods: {
-            ...mapActions('wallets', ['getList']),
+            ...mapActions('merchants', ['getList']),
         },
         created() {
             this.getList({})

@@ -11,9 +11,7 @@
                 <wallets/>
             </TabViewItem>
             <TabViewItem title="Shops">
-                <GridLayout columns="*" rows="*">
-                    <Label @tap="$navigateTo(login)" class="message" text="Tab 2 Content" col="0" row="0"/>
-                </GridLayout>
+                <shops/>
             </TabViewItem>
             <TabViewItem title="Options">
 
@@ -27,10 +25,10 @@
     import transactions from '../components/transactions'
     import wallets from '../components/wallets'
     import user from '../components/user'
-
+    import shops from '../components/shops'
 
     export default {
-        components: {transactions, wallets,user}
+        components: {transactions, wallets,user,shops}
     }
 </script>
 
