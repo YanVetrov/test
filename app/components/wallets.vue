@@ -1,11 +1,16 @@
 <template>
     <ScrollView>
         <StackLayout class="home-panel">
-            <CardView  v-for="item in data" class="card" elevation="40" radius="10"
+            <CardView v-for="item in data" class="card" elevation="40" radius="10"
                       ios:shadowRadius="3">
                 <StackLayout class="card-layout">
                     <Label class="h1" :text="item.name=='Bitcoin'?'₿ ' +item.name:'$ '+item.name"/>
                     <Label class="body" textWrap="true" :text="item.balance + ' ' + item.symbol"/>
+                    <FlexboxLayout>
+                        <button class="butt" background="#53ba82" text="ACCEPT" row="1" col="1"/>
+                        <button class="butt" background="#FF5544" text="DECLINE" row="1" col="1"/>
+
+                    </FlexboxLayout>
                 </StackLayout>
 
             </CardView>
@@ -38,7 +43,7 @@
         }
     }
 </script>
-<style scoped>
+<style>
 
     .card {
         background-color: #fff;
@@ -52,6 +57,12 @@
 
     .card-layout .h1 {
         margin-bottom: 15;
-        color:black;
+        color: black;
+    }
+
+
+    .butt {
+        width: 50%;
+        color:white;
     }
 </style>

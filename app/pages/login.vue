@@ -53,12 +53,12 @@
             ...mapActions('user', {enter: 'login', check: 'check'}),
             sign() {
                 this.enter({login: this.login, password: this.password})
-                    .then(r=>r?this.$navigateTo(main):'')
+                    .then(r => r ? this.$navigateTo(main) : '')
             }
         },
         created() {
-            localStorage.getItem('token')?this.$navigateTo(main):''
-            console.log('TOKEN:'+localStorage.getItem('token'))
+            if (localStorage.getItem('token')) this.$navigateTo(main)
+            console.log('TOKEN:' + localStorage.getItem('token'))
         }
 
     }
