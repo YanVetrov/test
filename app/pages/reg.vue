@@ -1,5 +1,6 @@
 <template>
     <Page>
+        <ActionBar title="Registration" android:flat="true"/>
         <FlexboxLayout class="page">
             <StackLayout class="form">
                 <!--<Image class="logo"></Image>-->
@@ -66,7 +67,8 @@
                     .then(r => r === true ?
                         this.$navigateTo(main,
                             {
-                                props: {fromReg: {login: this.login, password: this.password}}
+                                props: {fromReg: {login: this.login, password: this.password}},
+                                clearHistory: true
                             })
                         :
                         this.$showModal({template: `<TextView padding="20" editable="false" text="${r}" />`})

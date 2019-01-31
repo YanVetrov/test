@@ -1,5 +1,6 @@
 <template>
     <Page>
+        <ActionBar title="Login" android:flat="true"/>
         <FlexboxLayout class="page">
             <StackLayout class="form">
                 <Image class="logo"></Image>

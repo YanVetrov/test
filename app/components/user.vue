@@ -1,7 +1,6 @@
 <template>
 
-    <GridLayout  class="page page-content home-page-content" rows="160, 80, *">
-        <!-- Chart -->
+    <GridLayout  class="page page-content home-page-content" rows="160, *">
 
         <StackLayout v-if="load" row="0" class="balance-chart user-picture">
             <Image width="100" height="100" class="user-picture" src="~/assets/images/haski.jpg"/>
@@ -11,30 +10,9 @@
             </FlexboxLayout>
         </StackLayout>
 
-        <!-- Balance Summary -->
-        <GridLayout v-if="user.affiliate&&load" row="1" columns="*, *, *" class="balance-summary">
-            <StackLayout col="0">
-                <Label text="USD" class="title"></Label>
-                <Label class="ammount fa">{{143}} {{'fa-dollar-sign' | fonticon}}</Label>
-                <Label class="hr-light green" width="35%"></Label>
-            </StackLayout>
 
-            <StackLayout col="1">
-                <Label text="BTC" class="title"></Label>
-                <Label :text="0.3453+' ₿'" class="ammount"></Label>
-                <Label class="hr-light red" width="25%"></Label>
-            </StackLayout>
 
-            <StackLayout col="2">
-                <Label text="Link" class="title"></Label>
-                <Label :text="'/'+user.affiliate.link+'/'" class="ammount"></Label>
-                <Label class="hr-light green" width='15%'></Label>
-            </StackLayout>
-        </GridLayout>
-
-        <!-- Trnsactions -->
-
-        <StackLayout v-if="load" row="2">
+        <StackLayout v-if="load" row="1">
             <ScrollView>
             <StackLayout>
             <CardView @tap="$navigateTo(password,{transition:{name:'slideLeft'}})" class="card" elevation="5" radius='15'
@@ -68,7 +46,7 @@
                 </StackLayout>
 
             </CardView>
-            <CardView @tap="destroy" class="card" elevation="5" radius="15"
+            <CardView margin="15" @tap="destroy" class="card" elevation="5" radius="15"
                       shadowRadius="1">
                 <StackLayout class="card-layout">
                     <FlexboxLayout justifyContent="space-between">

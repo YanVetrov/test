@@ -3,8 +3,9 @@
     <Page>
 
         <ActionBar title="AZARA" android:flat="true"/>
-        <TabView android:tabBackgroundColor="#53ba82"
-                 android:tabTextColor="#c4ffdf"
+        <TabView tabBackgroundColor="#53ba82"
+                 tabTextColor="#c4ffdf"
+                 tabTextFontSize="24"
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
 
