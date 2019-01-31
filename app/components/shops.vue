@@ -1,18 +1,13 @@
 <template>
     <ScrollView>
         <StackLayout class="home-panel">
-            <button class="butt" background="#53bebe" width="90%" fontSize="20" fontWeight="bold" text="+" row="1" col="1"/>
-            <CardView v-for="item in list" class="card" elevation="40" radius="10"
-                      ios:shadowRadius="3"  :key="'id__'+item.name">
+            <CardView v-for="item in list" class="card" elevation="20" radius="15"
+                      shadowRadius="3"  :key="'id__'+item.name">
                 <StackLayout class="card-layout">
                     <Label class="h1" :text="item.name"/>
                     <Label class="body" textWrap="true" :text="'FEE: '+item.fee"/>
                     <Label class="body" textWrap="true" :text="item.domain"/>
-                    <FlexboxLayout>
-                        <button class="butt" background="#53ba82" text="Edit" row="1" col="1"/>
-                        <button class="butt" background="#FF5544" text="Delete" row="1" col="1"/>
 
-                    </FlexboxLayout>
                 </StackLayout>
 
             </CardView>

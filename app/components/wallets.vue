@@ -1,8 +1,8 @@
 <template>
     <ScrollView>
         <StackLayout class="home-panel">
-            <CardView v-for="item in data" :key="'n1'+item.name" class="card" elevation="40" radius="10"
-                      ios:shadowRadius="3">
+            <CardView v-for="item in data" :key="'n1'+item.name" class="card" elevation="10" radius="10"
+                      shadowRadius="3">
                 <StackLayout class="card-layout">
                     <FlexboxLayout>
 

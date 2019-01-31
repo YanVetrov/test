@@ -3,35 +3,31 @@
         <FlexboxLayout class="page">
             <StackLayout class="form">
                 <Image class="logo"></Image>
-                <Label class="header" :text="'Sign in to Azara'"></Label>
+                <Label class="header" :text="'Changing password'"></Label>
 
                 <StackLayout class="input-field">
-                    <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
+                    <TextField v-model="oldPassword" class="input" hint="Old password" secure="false" autocorrect="false"
                                autocapitalizationType="none"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
                 <StackLayout class="input-field">
-                    <TextField v-model="password" #password class="input" hint="Password" secure="true"></TextField>
+                    <TextField v-model="newPassword" #password class="input" hint="New password" secure="true"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
-                <StackLayout v-if="twofa" class="input-field">
-                    <TextField v-model="code" #password class="input" hint="2fa (OTP) code"></TextField>
+                <StackLayout class="input-field">
+                    <TextField v-model="repeat" #password class="input" hint="New password repeat" secure="true"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
-                <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
+                <Button v-if="load" text="Change password" @tap="change" class="btn btn-primary m-t-20"></Button>
                 <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
                                    class="activity-indicator"></ActivityIndicator>
                 <Label text="Forgot your password?" class="login-label"></Label>
             </StackLayout>
 
 
-            <Label @tap="$navigateTo(reg)" class="login-label sign-up-label">
-                <FormattedString>
-                    <Span :text="'Sign up'" class="bold"></Span>
-                </FormattedString>
-            </Label>
+
         </FlexboxLayout>
     </Page>
 </template>
@@ -42,39 +38,27 @@
     import reg from './reg'
 
     export default {
-        props: ['fromReg'],
-        name: "login",
         data() {
             return {
                 main,
                 reg,
-                login: 'test1',
-                password: 'qweqwe',
-                twofa: false,
-                code:null,
+                oldPassword:'',
+                newPassword:'',
+                repeat:'',
             }
         },
         computed: {
             ...mapGetters('user', ['user', 'load'])
         },
         methods: {
-            ...mapActions('user', {enter: 'login', check: 'check'}),
-            sign() {
-                this.enter({login: this.login, password: this.password,code:this.code})
-                    .then(r => {
-                        if (r === true) this.$navigateTo(main, {clearHistory: true})
-                        else if (r === '2fa') return this.twofa = true;
-                        else this.$showModal({template: `<TextView padding="20" editable="false" text="${r}" />`})
-                    })
-            }
-        },
-        created() {
-            if (this.fromReg) {
-                this.login = this.fromReg.login;
-                this.password = this.fromReg.password;
-            }
-            if (localStorage.getItem('token')) return this.check().then(r => r ? this.$navigateTo(main) : '')
+            ...mapActions('user', ['changePassword']),
+            change() {
+                if(this.newPassword==this.repeat)
+                this.changePassword({newPassword: this.newPassword, oldPassword: this.oldPassword})
+                    .then(r => r===true ? this.$navigateBack() : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
 
+                else this.$showModal({template:`<TextView padding="20" editable="false" text="Repeat your password correct." />`})
+            }
         }
 
     }
@@ -96,7 +80,7 @@
     }
 
     .logo {
-        margin-bottom: 2;
+        margin-bottom: 12;
         height: 90;
         font-weight: bold;
     }

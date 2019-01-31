@@ -1,37 +1,40 @@
 <template>
     <Page>
-        <FlexboxLayout class="page">
+        <FlexboxLayout class="page" v-if="!active">
             <StackLayout class="form">
-                <Image class="logo"></Image>
-                <Label class="header" :text="'Sign in to Azara'"></Label>
+                <Image class="logo" width="200" height="200" :src="otp.image"></Image>
 
                 <StackLayout class="input-field">
-                    <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
+                    <TextField editable="false" v-model="otp.secret" textAlign="center"  class="input" hint="New email" keyboardType="email" autocorrect="false"
                                autocapitalizationType="none"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
+
                 <StackLayout class="input-field">
-                    <TextField v-model="password" #password class="input" hint="Password" secure="true"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-                <StackLayout v-if="twofa" class="input-field">
-                    <TextField v-model="code" #password class="input" hint="2fa (OTP) code"></TextField>
+                    <TextField v-model="code" #password class="input" hint="input your code" keyboardType="email" ></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
-                <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
+                <Button v-if="load" text="Confirm OTP" @tap="confirm" class="btn btn-primary m-t-20"></Button>
                 <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
                                    class="activity-indicator"></ActivityIndicator>
-                <Label text="Forgot your password?" class="login-label"></Label>
             </StackLayout>
 
 
-            <Label @tap="$navigateTo(reg)" class="login-label sign-up-label">
-                <FormattedString>
-                    <Span :text="'Sign up'" class="bold"></Span>
-                </FormattedString>
-            </Label>
+
+        </FlexboxLayout>
+        <FlexboxLayout class="page" v-else>
+            <StackLayout class="form">
+
+
+                <Button v-if="load" text="Delete OTP" @tap="remove" class="btn btn-primary m-t-20"></Button>
+                <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
+                                   class="activity-indicator"></ActivityIndicator>
+            </StackLayout>
+
+
+
         </FlexboxLayout>
     </Page>
 </template>
@@ -42,39 +45,37 @@
     import reg from './reg'
 
     export default {
-        props: ['fromReg'],
-        name: "login",
         data() {
             return {
                 main,
                 reg,
-                login: 'test1',
-                password: 'qweqwe',
-                twofa: false,
-                code:null,
+                otp:{},
+                code:'',
+                active:false,
             }
         },
         computed: {
             ...mapGetters('user', ['user', 'load'])
         },
         methods: {
-            ...mapActions('user', {enter: 'login', check: 'check'}),
-            sign() {
-                this.enter({login: this.login, password: this.password,code:this.code})
-                    .then(r => {
-                        if (r === true) this.$navigateTo(main, {clearHistory: true})
-                        else if (r === '2fa') return this.twofa = true;
-                        else this.$showModal({template: `<TextView padding="20" editable="false" text="${r}" />`})
-                    })
+            ...mapActions('user', ['changeEmail','otpCreate','otpConfirm','otpDelete']),
+            confirm() {
+
+                    this.otpConfirm({code:this.code})
+                        .then(r => r===true ? this.$navigateBack() : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
+
+            },
+            remove() {
+
+                this.otpDelete()
+                    .then(r => r===true ? this.$navigateBack() : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
+
             }
         },
-        created() {
-            if (this.fromReg) {
-                this.login = this.fromReg.login;
-                this.password = this.fromReg.password;
-            }
-            if (localStorage.getItem('token')) return this.check().then(r => r ? this.$navigateTo(main) : '')
-
+        created(){
+            this.active=this.user.secure2fa.active
+            console.log(this.active)
+            !this.active&&this.otpCreate().then(r=>this.otp=r);
         }
 
     }
@@ -96,7 +97,7 @@
     }
 
     .logo {
-        margin-bottom: 2;
+        margin-bottom: 12;
         height: 90;
         font-weight: bold;
     }
