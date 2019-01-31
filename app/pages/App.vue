@@ -7,13 +7,13 @@
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
 
-            <TabViewItem title="Wallets">
+            <TabViewItem class="fa" fontSize="20" :title="'fa-wallet' | fonticon">
                 <wallets/>
             </TabViewItem>
-            <TabViewItem title="Shops">
+            <TabViewItem class="fa" fontSize="20" :title="'fa-shopping-cart' | fonticon">
                 <shops/>
             </TabViewItem>
-            <TabViewItem title="Options">
+            <TabViewItem class="fa" fontSize="20" :title="'fa-user' | fonticon">
 
                 <user/>
             </TabViewItem>
