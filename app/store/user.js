@@ -15,7 +15,9 @@ export default {
     actions: {
         async login({commit}, data) {
             commit('load', false)
+            console.log('INIT LOGIN')
             let [err, res] = await this._vm.$rest.to('user/auth/sign-in', {tokenAuth: true, ...data})
+            console.log('CLOSE LOGIN')
             commit('load', true)
             console.log(err, res.data.affiliate)
             if (res) {
