@@ -19,14 +19,24 @@ export default {
             let [err, res] = await this._vm.$rest.to('user/auth/sign-in', {tokenAuth: true, ...data})
             console.log('CLOSE LOGIN')
             commit('load', true)
-            console.log(err, res.data.affiliate)
+            console.log(err, res)
             if (res) {
                 commit('user', res.data)
                 localStorage.setItem('token', res.data.token)
                 console.log(res.data.token)
                 return true;
             }
-            else return false
+            else return err.error.message
+        },
+        async reg({commit}, {login,password,email}) {
+            commit('load', false)
+            console.log('INIT reg')
+            let [err, res] = await this._vm.$rest.to('user/auth/register', {login,password,email})
+            console.log('CLOSE reg')
+            commit('load', true)
+            console.log(err, res)
+            if (res)return true;
+            else return err.error.message;
         },
         async check() {
             let [err, res] = await this._vm.$rest.to('user/auth/session/get')

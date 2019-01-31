@@ -2,11 +2,16 @@
     <Page>
         <FlexboxLayout class="page">
             <StackLayout class="form">
-                <Image class="logo"></Image>
-                <Label class="header" :text="'Sign in to Azara'"></Label>
+                <!--<Image class="logo"></Image>-->
+                <Label class="header" :text="'Sign up to Azara'"></Label>
 
                 <StackLayout class="input-field">
                     <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
+                               autocapitalizationType="none"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <TextField v-model="email" class="input" hint="Email" keyboardType="email" autocorrect="false"
                                autocapitalizationType="none"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
@@ -15,17 +20,21 @@
                     <TextField v-model="password" #password class="input" hint="Password" secure="true"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
+                <StackLayout class="input-field">
+                    <TextField v-model="repeat" #password class="input" hint="Repeat password"
+                               secure="true"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
 
 
-                <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
+                <Button v-if="load" text="Sign up" @tap="sign" class="btn btn-primary m-t-20"></Button>
                 <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
                                    class="activity-indicator"></ActivityIndicator>
-                <Label text="Forgot your password?" class="login-label"></Label>
             </StackLayout>
 
-            <Label @tap="$navigateTo(reg)" class="login-label sign-up-label">
+            <Label @tap="$navigateTo(main)" class="login-label sign-up-label">
                 <FormattedString>
-                    <Span :text="'Sign up'" class="bold"></Span>
+                    <Span :text="'Back to Login'"></Span>
                 </FormattedString>
             </Label>
         </FlexboxLayout>
@@ -34,38 +43,36 @@
 
 <script>
     import {mapActions, mapGetters} from 'vuex'
-    import main from './App'
-    import reg from './reg'
+    import main from './login'
 
     export default {
-        props:['fromReg'],
         name: "login",
         data() {
             return {
                 main,
-                reg,
-                login: 'test1',
-                password: 'qweqwe',
+                login: '',
+                password: '',
+                email: '',
+                repeat: '',
             }
         },
         computed: {
             ...mapGetters('user', ['user', 'load'])
         },
         methods: {
-            ...mapActions('user', {enter: 'login', check: 'check'}),
+            ...mapActions('user', {enter: 'reg', check: 'check'}),
             sign() {
-                this.enter({login: this.login, password: this.password})
-                    .then(r => r===true ? this.$navigateTo(main,{clearHistory:true}) : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
+                this.enter({login: this.login, password: this.password, email: this.email})
+                    .then(r => r === true ?
+                        this.$navigateTo(main,
+                            {
+                                props: {fromReg: {login: this.login, password: this.password}}
+                            })
+                        :
+                        this.$showModal({template: `<TextView padding="20" editable="false" text="${r}" />`})
+                    )
             }
         },
-        created() {
-            if(this.fromReg){
-                this.login=this.fromReg.login;
-                this.password=this.fromReg.password;
-            }
-            if (localStorage.getItem('token')) this.$navigateTo(main)
-            console.log('TOKEN:' + localStorage.getItem('token'))
-        }
 
     }
 </script>

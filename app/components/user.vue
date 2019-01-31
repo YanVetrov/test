@@ -10,7 +10,7 @@
         </StackLayout>
 
         <!-- Balance Summary -->
-        <GridLayout row="1" columns="*, *, *" class="balance-summary">
+        <GridLayout v-if="user.affiliate" row="1" columns="*, *, *" class="balance-summary">
             <StackLayout col="0">
                 <Label text="USD" class="title"></Label>
                 <Label :text="user.affiliate.balance.usd + ' $'" class="ammount"></Label>
@@ -44,6 +44,7 @@
                 </StackLayout>
 
             </CardView>
+
 
 
         </StackLayout>
