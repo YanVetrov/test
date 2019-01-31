@@ -1,4 +1,5 @@
 <template>
+
     <Page>
 
         <ActionBar title="AZARA" android:flat="true"/>
@@ -19,6 +20,7 @@
             </TabViewItem>
         </TabView>
     </Page>
+
 </template>
 
 <script>

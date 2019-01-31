@@ -7,10 +7,17 @@
                     <FlexboxLayout>
 
                         <Label fontSize="25" color="orange" margin="10" class="fa">{{'fa-wallet' | fonticon}}</Label>
-                    <Label class="h1" :text="item.name"/>
+                        <Label class="h1" :text="item.name"/>
                     </FlexboxLayout>
-                    <Label class="body" textWrap="true" :text="item.balance + ' ' + item.symbol"/>
+                    <FlexboxLayout justifyContent="space-between">
+                        <Label class="body" textWrap="true" :text="item.balance + ' ' + item.symbol"/>
 
+                        <FlexboxLayout>
+                            <Label @tap="$navigateTo(exchange,{transition:{name:'slideTop'},props:{current:item}})" fontSize="30" color="#34A5EE" marginRight="25" class="fa">{{'fa-exchange-alt' | fonticon}}</Label>
+                            <Label fontSize="30" color="#4BCC67" marginRight="25" class="fa">{{'fa-arrow-down' | fonticon}}</Label>
+                            <Label @tap="$navigateTo(history,{transition:{name:'fadeOut'},props:{current:item}})" fontSize="30" color="silver" marginRight="25" class="fa">{{'fa-history' | fonticon}}</Label>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
 
                 </StackLayout>
 
@@ -25,12 +32,16 @@
 <script>
     import login from '../pages/login'
     import {mapActions, mapGetters} from 'vuex'
+    import exchange from '../pages/exchange'
+    import history from '../pages/history'
 
     export default {
         data() {
             return {
                 msg: 'Hello World!',
-                login
+                login,
+                exchange,
+                history
             }
         },
         computed: {
@@ -61,9 +72,8 @@
         color: black;
     }
 
-
     .butt {
         width: 50%;
-        color:white;
+        color: white;
     }
 </style>
