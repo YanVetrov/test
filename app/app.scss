@@ -8,6 +8,13 @@
 
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
-.fa {
-  font-family: FontAwesome, fontawesome-webfont;
+.fa,
+.fas {
+  font-family: FontAwesome, FontAwesome5FreeSolid;
+  font-weight: 300;
+}
+
+.far {
+  font-family: FontAwesome5Free, FontAwesome5FreeRegular;
+  font-weight: 400;
 }
