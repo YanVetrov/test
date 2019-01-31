@@ -1,12 +1,5 @@
 {
-    "__proxy_path": "/service",
-    "__proxy_to_rest_api": "https://crypto-wallet.medve-dev.net/service",
     "baseUrl": "https://crypto-wallet.medve-dev.net",
     "fsPath": "/service/fs",
-    "apiPath": "/service/api/v1/",
-    "airbrake": {
-        "status": false,
-        "projectId": 0,
-        "projectKey": ""
-    }
+    "apiPath": "/service/api/v1/"
 }
