@@ -8,6 +8,14 @@ import './plugins/rest'
 import * as wallets from './store/wallets'
 import * as transactions from './store/transactions'
 import * as merchants from './store/merchants'
+import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
+
+TNSFontIcon.paths = {
+    'fa': './fonts/fontawesome.min.css'
+};
+TNSFontIcon.loadCss();
+
+Vue.filter('fonticon', fonticon);
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
 require("nativescript-localstorage");
 

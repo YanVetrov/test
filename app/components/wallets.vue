@@ -6,7 +6,7 @@
                 <StackLayout class="card-layout">
                     <Label class="h1" :text="item.name=='Bitcoin'?'₿ ' +item.name:'$ '+item.name"/>
                     <Label class="body" textWrap="true" :text="item.balance + ' ' + item.symbol"/>
-
+                    <Label fontSize="25" color="black" class="fa">{{'fa-wallet' | fonticon}}</Label>
                 </StackLayout>
 
             </CardView>

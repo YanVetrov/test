@@ -16,7 +16,7 @@
     "emulator-android": "tns run android --bundle --emulator"
   },
   "nativescript": {
-    "id": "org.nativescript.application",
+    "id": "com.azara",
     "tns-ios": {
       "version": "5.1.1"
     },
@@ -28,6 +28,8 @@
     "await-to-js": "^2.1.1",
     "axios": "^0.18.0",
     "nativescript-cardview": "^3.1.1",
+    "nativescript-fontawesome": "^1.0.0",
+    "nativescript-fonticon": "^2.0.0",
     "nativescript-localstorage": "^2.0.0",
     "nativescript-socket.io": "^0.9.0",
     "nativescript-theme-core": "^1.0.4",
