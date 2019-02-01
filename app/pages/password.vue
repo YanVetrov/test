@@ -2,8 +2,8 @@
     <Page>
         <FlexboxLayout class="page">
             <StackLayout class="form">
-                <Image class="logo"></Image>
-                <Label class="header" :text="'Changing password'"></Label>
+
+                <Label class="header fa" padding="20" >Changing password {{'fa-key' | fonticon}}</Label>
 
                 <StackLayout class="input-field">
                     <TextField v-model="oldPassword" class="input" hint="Old password" secure="false" autocorrect="false"

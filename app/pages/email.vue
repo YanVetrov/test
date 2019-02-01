@@ -2,8 +2,7 @@
     <Page>
         <FlexboxLayout class="page">
             <StackLayout class="form">
-                <Image class="logo"></Image>
-                <Label class="header" :text="'Changing email'"></Label>
+                <Label class="header fa" padding="20" >Changing email {{'fa-envelope' | fonticon}}</Label>
 
                 <StackLayout class="input-field">
                     <TextField v-model="email" class="input" hint="New email" keyboardType="email" autocorrect="false"

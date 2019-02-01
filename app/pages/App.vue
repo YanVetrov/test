@@ -1,21 +1,26 @@
 <template>
-  <Page>
-    <ActionBar title="AZARA" android:flat="true" />
-    <TabView android:tabBackgroundColor="#53ba82"
-             android:tabTextColor="#c4ffdf"
-             android:selectedTabTextColor="#ffffff"
-             androidSelectedTabHighlightColor="#ffffff">
-      <TabViewItem class="fa" fontSize="20" :title="'fa-wallet' | fonticon">
-        <wallets />
-      </TabViewItem>
-      <TabViewItem class="fa" fontSize="20" :title="'fa-shopping-cart' | fonticon">
-        <shops />
-      </TabViewItem>
-      <TabViewItem class="fa" fontSize="20" :title="'fa-user' | fonticon">
-        <user />
-      </TabViewItem>
-    </TabView>
-  </Page>
+
+    <Page>
+
+        <ActionBar title="AZARA" android:flat="true"/>
+        <TabView tabBackgroundColor="#53ba82"
+                 tabTextColor="#c4ffdf"
+                 tabTextFontSize="24"
+                 android:selectedTabTextColor="#ffffff"
+                 androidSelectedTabHighlightColor="#ffffff">
+
+            <TabViewItem class="fa" fontSize="20" :title="'fa-wallet' | fonticon">
+                <wallets/>
+            </TabViewItem>
+            <TabViewItem class="fa" fontSize="20" :title="'fa-shopping-cart' | fonticon">
+                <shops/>
+            </TabViewItem>
+            <TabViewItem class="fa" fontSize="20" :title="'fa-user' | fonticon">
+
+                <user/>
+            </TabViewItem>
+        </TabView>
+    </Page>
 
 </template>
 
