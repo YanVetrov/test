@@ -1,112 +1,125 @@
 <template>
-    <StackLayout>
-        <!--<SearchBar hint="Search" textFieldBackgroundColor="silver"/>-->
+  <StackLayout>
+    <!--<SearchBar hint="Search" textFieldBackgroundColor="silver"/>-->
 
-        <ScrollView>
-
-
-            <StackLayout>
+    <ScrollView>
 
 
+      <StackLayout>
+
+        <FlexboxLayout flexWrap="wrap">
+          <ListView  v-if="load" class="list-group" for="s in data" height="*" @itemTap="">
+            <v-template>
+              <GridLayout class="list-group-item" rows="auto, *" columns="30, *">
+                <Image row="0" col="0" :src="'~/assets/images/'+item.symbol+'.png'" class="thumb img-circle"
+                       rowSpan="2"></Image>
+                <Label row="0" col="1" :text="s.type" class="list-group-item-heading" />
+                <Label row="1" col="1" :text="s.comment + ' ' + item.symbol" class="list-group-item-text" />
+                <Label row="0" col="2" :text="Number(s.amount)" class="list-group-item-heading" />
+                <Label row="0" col="2" :text="s.currency" class="list-group-item-text" />
+              </GridLayout>
+            </v-template>
+          </ListView>
 
 
-                <FlexboxLayout flexWrap="wrap">
-                    <FlexboxLayout v-if="load" class="block list" v-for="s in data" :key="'c2_'+s.currency" flexDirection="row">
-                        <Label class="background" color="#53ba82" :text="s.currency"/>
-                        <FlexboxLayout flexDirection="column" width="80%">
-                            <Label :text="Number(s.amount)" class="song"/>
-                            <Label :text="s.type" class="signer"/>
-                        </FlexboxLayout>
-                    </FlexboxLayout>
+          <!---->
+          <!--<FlexboxLayout v-if="load" class="block list" v-for="s in data" :key="'c2_'+s.currency" flexDirection="row">-->
+            <!--<Label class="background" color="#53ba82" :text="s.currency" />-->
+            <!--<FlexboxLayout flexDirection="column" width="80%">-->
+              <!--<Label :text="Number(s.amount)" class="song" />-->
+              <!--<Label :text="s.type" class="signer" />-->
+            <!--</FlexboxLayout>-->
+          <!--</FlexboxLayout>-->
 
-                    <ActivityIndicator row="1" #activityIndicator :busy="!load" width="100" height="100"
-                                       class="activity-indicator"></ActivityIndicator>
+          <ActivityIndicator row="1" #activityIndicator :busy="!load" width="100" height="100"
+                             class="activity-indicator"></ActivityIndicator>
 
 
-                </FlexboxLayout>
-            </StackLayout>
-        </ScrollView>
-    </StackLayout>
+        </FlexboxLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
 </template>
 
 <script>
-    import login from '../pages/login'
-    import {mapActions, mapGetters} from 'vuex'
+import login from '../pages/login'
+import {mapActions, mapGetters} from 'vuex'
 
-    export default {
-        data() {
-            return {
-                msg: 'Hello World!',
-                login
-            }
-        },
-        computed: {
-            ...mapGetters('wallets', ['wallets']),
-            ...mapGetters('transactions', ['load', 'data', 'current_page', 'total_pages']),
-        },
-        methods: {
-            ...mapActions('transactions', ['getList']),
-        },
-        mounted() {
-            this.getList({})
-        }
+export default {
+  data() {
+    return {
+      msg: 'Hello World!',
+      login
     }
+  },
+  computed: {
+    ...mapGetters('wallets', ['wallets']),
+    ...mapGetters('transactions', ['load', 'data', 'current_page', 'total_pages']),
+  },
+  methods: {
+    ...mapActions('transactions', ['getList']),
+  },
+  mounted() {
+    this.getList({})
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-    @import '../../node_modules/nativescript-theme-core/scss/skins/light/index';
-    @import '../../node_modules/nativescript-theme-core/scss/index';
-    .icon {
-        font-family: 'icomoon';
-        font-size: 38;
-    }
+@import '../../node_modules/nativescript-theme-core/scss/skins/light/index';
+@import '../../node_modules/nativescript-theme-core/scss/index';
 
-    .block {
-        color: black;
-        margin: 15;
-        width: 230px;
-        height: 170vh;
-        transition: transform .3s;
-    }
+.icon {
+  font-family: 'icomoon';
+  font-size: 38;
+}
 
-    .background {
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 70%;
-    }
+.block {
+  color: black;
+  margin: 15;
+  width: 230px;
+  height: 170vh;
+  transition: transform .3s;
+}
 
-    .signer {
-        height: 15%;
-    }
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70%;
+}
 
-    .song {
-        height: 15%;
-    }
+.signer {
+  height: 15%;
+}
 
-    .list {
-        width: 100%;
-        height: 120px;
-        flex-direction: row;
-        border-width: 0 0 1 0;
-        border-color: black;
-    }
+.song {
+  height: 15%;
+}
 
-    .list .background {
-        width: 20%;
-        height: 100%;
-        margin: 5;
-        border-radius: 2;
-    }
+.list {
+  width: 100%;
+  height: 120px;
+  flex-direction: row;
+  border-width: 0 0 1 0;
+  border-color: black;
+}
 
-    .list .signer {
-        width: 100%;
-        height: 50%;
-    }
+.list .background {
+  width: 20%;
+  height: 100%;
+  margin: 5;
+  border-radius: 2;
+}
 
-    .list .song {
-        font-weight: bold;
-        width: 100%;
-        height: 50%;
-    }
+.list .signer {
+  width: 100%;
+  height: 50%;
+}
+
+.list .song {
+  font-weight: bold;
+  width: 100%;
+  height: 50%;
+}
 
 </style>

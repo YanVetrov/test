@@ -20,7 +20,6 @@ export const mutations = {
 export const actions = {
     async getList({ commit }, { currency = "USD", page = "1", limit = "10" }) {
         commit('load', false);
-        console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII')
         let [err, res] = await this._vm.$rest.to('user/transaction/getList', { currency, page, limit });
         commit('load', true);
         console.log(err, res);

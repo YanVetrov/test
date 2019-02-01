@@ -14,6 +14,7 @@ import * as exchange from './store/exchange'
 
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
 
+TNSFontIcon.debug = true;
 TNSFontIcon.paths = {
     'fa': './fonts/fontawesome.min.css'
 };

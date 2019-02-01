@@ -1,6 +1,6 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
-@import '~nativescript-theme-core/scss/dark';
+@import '~nativescript-theme-core/scss/light';
 
 // Override variables here
 
@@ -9,12 +9,7 @@
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
 .fa,
-.fas {
-  font-family: FontAwesome, FontAwesome5ProLight;
+.fal {
+  font-family: FontAwesome, FontAwesome5Pro-Light;
   font-weight: 300;
-}
-
-.far {
-  font-family: FontAwesome5Free, FontAwesome5FreeRegular;
-  font-weight: 400;
 }
