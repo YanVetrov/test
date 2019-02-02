@@ -15,7 +15,7 @@ import * as exchange from './store/exchange'
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
 
 TNSFontIcon.paths = {
-    'fa': './fonts/fontawesome.min.css'
+    'fa': './fonts/font-awesome.css',
 };
 TNSFontIcon.loadCss();
 
@@ -39,7 +39,7 @@ const store = new Vuex.Store({
     }
 });
 // Prints Vue logs when --env.production is *NOT* set while building
-Vue.config.silent = (TNS_ENV === 'production')
+Vue.config.silent = (TNS_ENV === 'production');
 
 new Vue({
     store,

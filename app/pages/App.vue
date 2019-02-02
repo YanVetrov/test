@@ -6,16 +6,17 @@
         <TabView tabBackgroundColor="#53ba82"
                  tabTextColor="#c4ffdf"
                  tabTextFontSize="24"
-                 android:selectedTabTextColor="#ffffff"
+                 class="fa"
+                 selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
 
-            <TabViewItem class="fa" fontSize="20" :title="'fa-wallet' | fonticon">
+            <TabViewItem :title="'fa-wallet' | fonticon">
                 <wallets/>
             </TabViewItem>
-            <TabViewItem class="fa" fontSize="20" :title="'fa-shopping-cart' | fonticon">
+            <TabViewItem  :title="'fa-shopping-cart' | fonticon">
                 <shops/>
             </TabViewItem>
-            <TabViewItem class="fa" fontSize="20" :title="'fa-user' | fonticon">
+            <TabViewItem  :title="'fa-user' | fonticon">
 
                 <user/>
             </TabViewItem>
