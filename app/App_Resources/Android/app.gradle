@@ -3,7 +3,7 @@
 android {
   defaultConfig {  
     generatedDensities = []
-    applicationId = "com.azara"
+    applicationId = "ai.azara.accepter"
   }
   aaptOptions {  
     additionalParameters "--no-version-vectors"  

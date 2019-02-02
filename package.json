@@ -1,5 +1,5 @@
 {
-  "name": "com.azara",
+  "name": "ai.azara.accepter",
   "version": "0.0.2",
   "description": "AZARA",
   "author": "yanvetrov <redchilik@gmail.com>",
@@ -16,7 +16,7 @@
     "emulator-android": "tns run android --bundle --emulator"
   },
   "nativescript": {
-    "id": "com.azara",
+    "id": "ai.azara.accepter",
     "tns-ios": {
       "version": "5.1.1"
     },
