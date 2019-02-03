@@ -5,8 +5,8 @@
   "author": "yanvetrov <redchilik@gmail.com>",
   "license": "UNLICENCED",
   "scripts": {
-    "build-ios": "tns build ios --bundle",
-    "appstote-ios": "tns appstore upload www.clsa.ru@gmail.com uhmu-brgj-tcns-mnzo",
+    "build-ios": "tns build ios --bundle --release --for-device --provision NZZN8LWEAY.ai.azara.accepter.prod",
+    "appstote-ios": "tns appstore upload www.clsa.ru@gmail.com uhmu-brgj-tcns-mnzo --ipa /Users/bdev/Documents/Projects/crypto-wallet-app/platforms/ios/build/device/cryptowalletapp.ipaљ",
     "build-android": "tns build android --bundle",
     "run-ios": "tns run ios --bundle",
     "run-android": "tns run android --bundle",
