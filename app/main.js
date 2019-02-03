@@ -12,7 +12,7 @@ import * as withdrawal from './store/withdrawal'
 import * as merchants from './store/merchants'
 import * as fee from './store/fee'
 import * as exchange from './store/exchange'
-
+Vue.use(require('vue-moment'));
 
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
 

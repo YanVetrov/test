@@ -19,9 +19,9 @@
                     </Button>
                 </FlexboxLayout>
 
-                <ListView class="list-group" for="s in data" height="*" @itemTap="">
+                <ListView class="list-group" for="s in data" height="*" @itemTap="showDescription">
                     <v-template>
-                        <GridLayout class="list-group-item" rows="auto, *" columns="45, *, 90">
+                        <GridLayout class="list-group-item" rows="auto, *" columns="45, *, 100">
                             <Label row="0" col="0" :text="type[s.type].icon|fonticon" class="fa in-tx"
                                    v-if="s.side === 'Out'"
                                    rowSpan="2"/>
@@ -30,12 +30,12 @@
                                    rowSpan="2"/>
                             <Label row="0" col="1" class="list-group-item-heading fa" fontSize="18">{{type[s.type].name}}</Label>
                             <Label row="1" col="1" :text="s.comment" class="list-group-item-text"/>
-                            <Label v-if="s.side === 'In'" row="0" col="2" :text="'+ ' + Number(s.amount).toFixed(4)"
+                            <Label v-if="s.side === 'In'" row="0" col="2" :text="'+ ' + Number(s.amount).toFixed(4) + ' ' +s.currency"
                                    class="list-group-item-heading right-amount" color="green"/>
-                            <Label v-if="s.side === 'Out'" row="0" col="2" :text="'- ' + Number(s.amount).toFixed(4)"
+                            <Label v-if="s.side === 'Out'" row="0" col="2" :text="'- ' + Number(s.amount).toFixed(4) + ' ' +s.currency"
                                    class="list-group-item-heading right-amount" color="red"/>
 
-                            <Label row="1" col="2" :text="s.currency" class="list-group-item-text right-amount"/>
+                            <Label row="1" col="2" class="list-group-item-text right-amount">{{ s.createdAt | moment("DD.MM.YYYY") }}</Label>
                         </GridLayout>
                     </v-template>
                 </ListView>
@@ -72,6 +72,9 @@
         },
         methods: {
             ...mapActions('transactions', ['getList']),
+            showDescription(item){
+                this.$showModal({template:`<TextView padding="20" editable="false" text="${item.item.comment}" />`})
+            }
         },
         mounted() {
             this.getList({currency: this.current.symbol.toUpperCase()})
