@@ -1,7 +1,7 @@
 <template>
 
   <Page>
-    <ActionBar title="AZARA" android:flat="true" />
+    <ActionBar :title="tabName" android:flat="true" />
 
     <GridLayout rows="*,auto" columns="auto">
       <wallets row="0" v-if="selectedTab === 'wallets'" />
@@ -24,7 +24,19 @@ import {mapGetters} from 'vuex'
 export default {
   components: {navBottom, wallets, user, shops},
   computed: {
-    ...mapGetters('app_global', ['selectedTab'])
+    ...mapGetters('app_global', ['selectedTab']),
+    tabName: function () {
+      switch (this.selectedTab) {
+        default:
+          return "Loading...";
+        case 'wallets':
+          return "Wallets";
+        case 'shops':
+          return 'My merchants';
+        case 'settings':
+          return 'Settings';
+      }
+    }
   },
 }
 </script>
