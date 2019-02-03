@@ -8,6 +8,7 @@ import './plugins/rest'
 import * as app_global from './store/app_global'
 import * as wallets from './store/wallets'
 import * as transactions from './store/transactions'
+import * as withdrawal from './store/withdrawal'
 import * as merchants from './store/merchants'
 import * as fee from './store/fee'
 import * as exchange from './store/exchange'
@@ -22,7 +23,7 @@ TNSFontIcon.loadCss();
 
 Vue.filter('fonticon', fonticon);
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
-Vue.registerElement("PreviousNextView", () => require("nativescript-iqkeyboardmanager"). PreviousNextView)
+Vue.registerElement("PreviousNextView", () => require("nativescript-iqkeyboardmanager").PreviousNextView)
 require("nativescript-localstorage");
 
 Vue.use(Vuex);
@@ -32,6 +33,7 @@ if (TNS_ENV !== 'production') {
 const store = new Vuex.Store({
     modules: {
         app_global,
+        withdrawal,
         counter,
         user,
         wallets,
