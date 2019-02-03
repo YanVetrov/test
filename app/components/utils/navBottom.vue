@@ -1,7 +1,7 @@
 <template>
   <GridLayout class="navBottom" height="50" width="100%" row="3" rows="auto"
               columns="auto,auto,auto">
-    <GridLayout :class="selectedTab==='wallets' ? 'active' : ''" @tap="changeTab('wallets')" rows="*,auto"
+    <GridLayout :class="{active:selectedTab==='wallets'}" @tap="changeTab('wallets')" rows="*,auto"
                 cols="auto" class="nav" col="0" row="0" width="33.33%">
       <Label row="0" :text="'fa-wallet' | fonticon" class="navIcon fa"></Label>
       <Label row="1" text="Wallets" class="navText"></Label>
@@ -21,14 +21,14 @@
   </GridLayout>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapMutations, mapGetters} from 'vuex'
 
 export default {
   computed: {
     ...mapGetters('app_global', ['selectedTab'])
   },
   methods: {
-    ...mapActions('app_global', ['changeTab'])
+    ...mapMutations('app_global', {changeTab:'tab'})
   }
 };
 </script>
