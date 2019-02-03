@@ -1,12 +1,12 @@
 export const state = () => ({
-    data: false,
+    data: [],
     load: true,
-})
-export const namespaced = true
+});
+export const namespaced = true;
 export const getters = {
     data: state => state.data,
     load: state => state.load,
-}
+};
 export const mutations = {
     data: (state, data) => state.data = data,
     load: (state, load) => state.load = load,
@@ -20,5 +20,5 @@ export const actions = {
         if (!err && res) {
             commit('data', res.data.wallets)
         };
-    },
-}
+    }
+};

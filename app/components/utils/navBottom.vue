@@ -35,9 +35,9 @@ export default {
 
 <style>
 .navBottom {
-  background-color: #efefef;
-  border-color: #b0b0b0;
-  border-top-width: 1;
+  background-color: #f5f5f5;
+  border-color: #919191;
+  border-top-width: 0.4;
 }
 
 .nav {

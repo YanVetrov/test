@@ -1,26 +1,16 @@
 <template>
 
-    <Page>
-        <ActionBar title="AZARA" android:flat="true"/>
+  <Page>
+    <ActionBar title="AZARA" android:flat="true" />
 
-        <navBottom/>
-        <!--<TabView tabBackgroundColor="#53ba82"-->
-                 <!--tabTextColor="#c4ffdf"-->
-                 <!--tabTextFontSize="24"-->
-                 <!--class="fa"-->
-                 <!--selectedTabTextColor="#ffffff"-->
-                 <!--androidSelectedTabHighlightColor="#ffffff">-->
-            <!--<TabViewItem :title="'fa-wallet' | fonticon">-->
-                <!--<wallets/>-->
-            <!--</TabViewItem>-->
-            <!--<TabViewItem  :title="'fa-shopping-cart' | fonticon">-->
-                <!--<shops/>-->
-            <!--</TabViewItem>-->
-            <!--<TabViewItem  :title="'fa-user' | fonticon">-->
-                <!--<user/>-->
-            <!--</TabViewItem>-->
-        <!--</TabView>-->
-    </Page>
+    <GridLayout rows="*,auto" columns="auto">
+      <wallets row="0" v-if="selectedTab === 'wallets'" />
+      <shops row="0" v-if="selectedTab === 'shops'" />
+      <user row="0" v-if="selectedTab === 'settings'" />
+      <navBottom row="1" />
+    </GridLayout>
+
+  </Page>
 
 </template>
 
@@ -29,16 +19,22 @@ import navBottom from '../components/utils/navBottom'
 import wallets from '../components/wallets'
 import user from '../components/user'
 import shops from '../components/shops'
+import {mapGetters} from 'vuex'
 
 export default {
-  components: {navBottom,wallets, user, shops}
+  components: {navBottom, wallets, user, shops},
+  computed: {
+    ...mapGetters('app_global', ['selectedTab'])
+  },
 }
 </script>
 
 <style lang="scss">
 ActionBar {
-  background-color: #53ba82;
-  color: #ffffff;
+  background-color: #efefef;
+  border-color: #b0b0b0;
+  border-bottom-width: 1;
+  /*color: #666666;*/
 }
 
 .message {

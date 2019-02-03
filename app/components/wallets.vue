@@ -33,7 +33,6 @@ import history from '../pages/history'
 export default {
   data() {
     return {
-      msg: 'Hello World!',
       login,
       exchange,
       history
@@ -56,23 +55,23 @@ export default {
 </script>
 <style>
 
-.card {
-  background-color: #fff;
-  color: #4d4d4d;
-  margin: 15 15 0;
-}
+/*.card {*/
+  /*background-color: #fff;*/
+  /*color: #4d4d4d;*/
+  /*margin: 15 15 0;*/
+/*}*/
 
-.card-layout {
-  padding: 20;
-}
+/*.card-layout {*/
+  /*padding: 20;*/
+/*}*/
 
-.card-layout .h1 {
-  margin-bottom: 15;
-  color: black;
-}
+/*.card-layout .h1 {*/
+  /*margin-bottom: 15;*/
+  /*color: black;*/
+/*}*/
 
-.butt {
-  width: 50%;
-  color: white;
-}
+/*.butt {*/
+  /*width: 50%;*/
+  /*color: white;*/
+/*}*/
 </style>
