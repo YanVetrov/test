@@ -1,10 +1,9 @@
 <template>
     <Page>
-        <ActionBar title="Login" android:flat="true"/>
+        <ActionBar title="Sign in to Azara" android:flat="true"/>
         <FlexboxLayout class="page">
             <StackLayout class="form">
-                <Image class="logo"></Image>
-                <Label class="header" :text="'Sign in to Azara'"></Label>
+                <Image class="logo" :src="'~/assets/images/logo.png'"/>
 
                 <StackLayout class="input-field">
                     <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
@@ -24,7 +23,6 @@
                 <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
                 <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
                                    class="activity-indicator"></ActivityIndicator>
-                <Label text="Forgot your password?" class="login-label"></Label>
             </StackLayout>
 
 
