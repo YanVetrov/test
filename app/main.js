@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import counter from './state'
 import user from './store/user'
 import './plugins/rest'
+import * as app_global from './store/app_global'
 import * as wallets from './store/wallets'
 import * as transactions from './store/transactions'
 import * as merchants from './store/merchants'
@@ -29,6 +30,7 @@ if (TNS_ENV !== 'production') {
 }
 const store = new Vuex.Store({
     modules: {
+        app_global,
         counter,
         user,
         wallets,

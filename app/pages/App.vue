@@ -1,37 +1,37 @@
 <template>
 
     <Page>
-
         <ActionBar title="AZARA" android:flat="true"/>
-        <TabView tabBackgroundColor="#53ba82"
-                 tabTextColor="#c4ffdf"
-                 tabTextFontSize="24"
-                 class="fa"
-                 selectedTabTextColor="#ffffff"
-                 androidSelectedTabHighlightColor="#ffffff">
 
-            <TabViewItem :title="'fa-wallet' | fonticon">
-                <wallets/>
-            </TabViewItem>
-            <TabViewItem  :title="'fa-shopping-cart' | fonticon">
-                <shops/>
-            </TabViewItem>
-            <TabViewItem  :title="'fa-user' | fonticon">
-
-                <user/>
-            </TabViewItem>
-        </TabView>
+        <navBottom/>
+        <!--<TabView tabBackgroundColor="#53ba82"-->
+                 <!--tabTextColor="#c4ffdf"-->
+                 <!--tabTextFontSize="24"-->
+                 <!--class="fa"-->
+                 <!--selectedTabTextColor="#ffffff"-->
+                 <!--androidSelectedTabHighlightColor="#ffffff">-->
+            <!--<TabViewItem :title="'fa-wallet' | fonticon">-->
+                <!--<wallets/>-->
+            <!--</TabViewItem>-->
+            <!--<TabViewItem  :title="'fa-shopping-cart' | fonticon">-->
+                <!--<shops/>-->
+            <!--</TabViewItem>-->
+            <!--<TabViewItem  :title="'fa-user' | fonticon">-->
+                <!--<user/>-->
+            <!--</TabViewItem>-->
+        <!--</TabView>-->
     </Page>
 
 </template>
 
 <script>
+import navBottom from '../components/utils/navBottom'
 import wallets from '../components/wallets'
 import user from '../components/user'
 import shops from '../components/shops'
 
 export default {
-  components: {wallets, user, shops}
+  components: {navBottom,wallets, user, shops}
 }
 </script>
 
