@@ -49,8 +49,8 @@
             return {
                 main,
                 reg,
-                login: 'test1',
-                password: 'qweqwe',
+                login: '',
+                password: '',
                 twofa: false,
                 code:null,
             }

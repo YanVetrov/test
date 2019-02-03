@@ -6,18 +6,18 @@
     <ScrollView  v-else>
     <StackLayout height="100%" >
 
-      <FlexboxLayout   width="100%"
-                      justifyContent="space-around"
-                     borderRadius="40 40 0 0">
-        <Button @tap="$navigateTo(exchange,{transition:{name:'slideTop'},props:{current}})" textAlignment="center"
-               color="white" fontSize="14" fontWeight="bold" width="45%" class="fa">EXCHANGE
-          {{'fa-exchange-alt'|fonticon}}</Button>
-        <Label textAlignment="center" color="white" fontSize="16" fontWeight="bold" width="10%" text="|" />
-        <Button textAlignment="center" color="white" fontSize="16" fontWeight="bold" width="45%" class="fa">WITHDRAWAL
-          {{'fa-hand-holding-usd'|fonticon}}</Button>
-      </FlexboxLayout>
+      <!--<FlexboxLayout   width="100%"-->
+                      <!--justifyContent="space-around"-->
+                     <!--borderRadius="40 40 0 0">-->
+        <!--<Button @tap="$navigateTo(exchange,{transition:{name:'slideTop'},props:{current}})" textAlignment="center"-->
+               <!--fontSize="14" fontWeight="bold" width="45%" class="fa">EXCHANGE-->
+          <!--{{'fa-exchange-alt'|fonticon}}</Button>-->
+        <!--<Label textAlignment="center" fontSize="16" fontWeight="bold" width="10%" text="|" />-->
+        <!--<Button textAlignment="center" fontSize="16" fontWeight="bold" width="45%" class="fa">WITHDRAWAL-->
+          <!--{{'fa-hand-holding-usd'|fonticon}}</Button>-->
+      <!--</FlexboxLayout>-->
 
-      <ListView class="list-group" for="s in data" height="*" @itemTap="">
+      <ListView class="list-group" for="s in data" height="100%" @itemTap="">
         <v-template>
           <GridLayout class="list-group-item" rows="auto, *" columns="30, *, 90">
             <Label row="0" col="0" :text="'fa-level-up' | fonticon" class="fa in-tx" v-if="s.side === 'Out'"
