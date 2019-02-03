@@ -73,8 +73,11 @@
         methods: {
             ...mapActions('transactions', ['getList']),
             showDescription(item){
-                this.$showModal({template:`<TextView padding="20" editable="false" text="${item.item.comment}" />`})
-            }
+                alert({
+                    title: "Sorry.",
+                    message: item.item.comment,
+                    okButtonText: "OK"
+                })            }
         },
         mounted() {
             this.getList({currency: this.current.symbol.toUpperCase()})

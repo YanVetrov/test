@@ -72,7 +72,11 @@
             ...mapActions('withdrawal', ['create']),
             exchange(){
                 this.create({address: this.val2,amount:this.val1})
-                    .then(r => r===true ? this.$navigateBack() : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
+                    .then(r => r===true ? this.$navigateBack() : alert({
+                        title: "Sorry.",
+                        message: r,
+                        okButtonText: "OK"
+                    }))
             },
 
         },

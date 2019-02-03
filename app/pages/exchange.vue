@@ -83,7 +83,11 @@
             exchange(){
 
                 this.create({fromCurrency: this.current.symbol.toUpperCase(), toCurrency: this.current.symbol=='btc'?'USD':"BTC",amount:this.val1})
-                    .then(r => r===true ? this.$navigateBack() : this.$showModal({template:`<TextView padding="20" editable="false" text="${r}" />`}))
+                    .then(r => r===true ? this.$navigateBack() : alert({
+                        title: "Sorry.",
+                        message: r,
+                        okButtonText: "OK"
+                    }))
             },
             correctBuy() {
                 let out = BigNumber(this.val1);
