@@ -2,7 +2,9 @@
     <Page>
         <ActionBar title="Sign in to Azara" android:flat="true"/>
         <FlexboxLayout class="page">
-            <StackLayout class="form">
+            <PreviousNextView>
+            <StackLayout class="form" marginTop="100">
+
                 <Image class="logo" :src="'~/assets/images/logo.png'"/>
 
                 <StackLayout class="input-field">
@@ -24,7 +26,7 @@
                 <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
                                    class="activity-indicator"></ActivityIndicator>
             </StackLayout>
-
+                </PreviousNextView>
 
             <Label @tap="$navigateTo(reg)" class="login-label sign-up-label">
                 <FormattedString>

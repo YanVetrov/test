@@ -22,6 +22,7 @@ TNSFontIcon.loadCss();
 
 Vue.filter('fonticon', fonticon);
 Vue.registerElement('CardView', () => require('nativescript-cardview').CardView);
+Vue.registerElement("PreviousNextView", () => require("nativescript-iqkeyboardmanager"). PreviousNextView)
 require("nativescript-localstorage");
 
 Vue.use(Vuex);
