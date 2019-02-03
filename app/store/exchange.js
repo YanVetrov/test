@@ -12,12 +12,16 @@ export const mutations = {
     load: (state, load) => state.load = load,
 }
 export const actions = {
-    async create({ commit },{fromCurrency,toCurrency,amount}) {
+    async create({commit, dispatch}, {fromCurrency, toCurrency, amount}) {
         commit('load', false);
-        let [err, res] = await this._vm.$rest.to('user/exchange/create',{fromCurrency,toCurrency,amount});
+        let [err, res] = await this._vm.$rest.to('user/exchange/create', {fromCurrency, toCurrency, amount});
         commit('load', true);
         console.log(err, res);
-        if (!err && res && res.success) return true;
-        else return false;
+        if (!err && res && res.success) {
+            dispatch('wallets/getList', {}, {root: true})
+            dispatch('transactions/getList', {currency:fromCurrency}, {root: true})
+            return true;
+        }
+        else return err.error.message;
     },
 }
