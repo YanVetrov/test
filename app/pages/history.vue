@@ -3,17 +3,18 @@
     <ActionBar :title="current.name+' wallet'"></ActionBar>
     <ActivityIndicator v-if="!load" #activityIndicator :busy="!load" width="100" height="100"
                        class="activity-indicator"></ActivityIndicator>
-    <StackLayout v-else>
+    <ScrollView  v-else>
+    <StackLayout height="100%" >
 
-      <FlexboxLayout padding="30" margin="40" width="100%"
-                     background="linear-gradient(to bottom, #4BCC67,#4BCC67)" justifyContent="space-around"
+      <FlexboxLayout   width="100%"
+                      justifyContent="space-around"
                      borderRadius="40 40 0 0">
-        <Label @tap="$navigateTo(exchange,{transition:{name:'slideTop'},props:{current}})" textAlignment="center"
+        <Button @tap="$navigateTo(exchange,{transition:{name:'slideTop'},props:{current}})" textAlignment="center"
                color="white" fontSize="14" fontWeight="bold" width="45%" class="fa">EXCHANGE
-          {{'fa-exchange-alt'|fonticon}}</Label>
+          {{'fa-exchange-alt'|fonticon}}</Button>
         <Label textAlignment="center" color="white" fontSize="16" fontWeight="bold" width="10%" text="|" />
-        <Label textAlignment="center" color="white" fontSize="16" fontWeight="bold" width="45%" class="fa">WITHDRAWAL
-          {{'fa-hand-holding-usd'|fonticon}}</Label>
+        <Button textAlignment="center" color="white" fontSize="16" fontWeight="bold" width="45%" class="fa">WITHDRAWAL
+          {{'fa-hand-holding-usd'|fonticon}}</Button>
       </FlexboxLayout>
 
       <ListView class="list-group" for="s in data" height="*" @itemTap="">
@@ -34,8 +35,9 @@
           </GridLayout>
         </v-template>
       </ListView>
-    </StackLayout>
 
+    </StackLayout>
+    </ScrollView>
   </Page>
 </template>
 
