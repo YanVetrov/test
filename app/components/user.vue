@@ -61,8 +61,6 @@
             </ScrollView>
 
         </StackLayout>
-        <ActivityIndicator v-else row="1" #activityIndicator :busy="true" width="70" height="70"
-                           class="activity-indicator"></ActivityIndicator>
     </GridLayout>
 
 </template>

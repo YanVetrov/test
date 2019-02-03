@@ -35,7 +35,7 @@ export default {
           return 'Merchants';
         case 'settings':
           return 'Settings';
-      }
+      }//
     }
   },
 }

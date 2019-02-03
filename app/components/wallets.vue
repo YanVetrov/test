@@ -1,9 +1,9 @@
 <template>
   <ScrollView>
     <StackLayout class="home-panel">
-      <ListView class="list-group" for="item in data" height="160" @itemTap="goHistoryWallet">
+      <ListView class="list-group" for="item in data" height="161" @itemTap="goHistoryWallet">
         <v-template>
-          <GridLayout class="list-group-item" rows="auto, auto" columns="70, 120,*,*,*">
+          <GridLayout class="list-group-item" rows="auto, auto" columns="71, 120,*,*,*">
             <Image row="0" col="0" :src="'~/assets/images/'+item.symbol+'.png'" class="thumb img-circle"
                    rowSpan="2"></Image>
             <Label row="0" col="1" :text="item.name" class="list-group-item-heading" />
