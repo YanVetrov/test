@@ -27,7 +27,7 @@
                 <Label fontSize="35" color="#4BCC67" class="fa" :text="'fa-arrow-down'|fonticon"/>
                 </FlexboxLayout>
                 <FlexboxLayout justifyContent="space-around" alignItems="center" v-for="item in data" :key="item._id" v-if="item.name!==current.name">
-                    <Label color="black" @tap="$navigateTo(exchange,{transition:{name:'fadeOut'},props:{current:item}})" class="fa" :text="'fa-arrow-left'|fonticon"/>
+                    <Label color="black" @tap="$navigateTo(exchange,{transition:{name:'fade'},props:{current:item}})" class="fa" :text="'fa-arrow-left'|fonticon"/>
                 <CardView width="85%" margin="15"  class="card" elevation="20" radius="10"
                            shadowRadius="1">
                     <StackLayout class="card-layout">
@@ -45,10 +45,10 @@
                     </StackLayout>
 
                 </CardView>
-                    <Label color="black" @tap="$navigateTo(exchange,{transition:{name:'fadeOut'},backstackVisible:false,props:{current:item}})" class="fa" :text="'fa-arrow-right'|fonticon"/>
+                    <Label color="black" @tap="$navigateTo(exchange,{transition:{name:'fade'},backstackVisible:false,props:{current:item}})" class="fa" :text="'fa-arrow-right'|fonticon"/>
                 </FlexboxLayout>
                 <FlexboxLayout padding="10" margin="10" justifyContent="center">
-                    <Button v-if="exLoad" @tap="exchange" fontSize="20" fontWeight="bold" borderRadius="10" margin="20" padding="15 50 15 50" background="#4BCC67" color="white" class="fa" text="Continue"/>
+                    <Button v-if="exLoad" @tap="exchange" fontSize="15" fontWeight="bold" borderRadius="10" margin="20" padding="15 50 15 50" background="#4BCC67" color="white" class="fa" text="Continue"/>
                     <ActivityIndicator v-else row="1" #activityIndicator :busy="true" width="70" height="70"
                                        class="activity-indicator"></ActivityIndicator>
                 </FlexboxLayout>

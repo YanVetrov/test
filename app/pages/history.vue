@@ -19,7 +19,7 @@
                     </Button>
                 </FlexboxLayout>
 
-                <ListView class="list-group" for="s in data" height="*" @itemTap="showDescription">
+                <ListView class="list-group" for="s in data" height="100%" @itemTap="showDescription">
                     <v-template>
                         <GridLayout class="list-group-item" rows="auto, *" columns="45, *, 100">
                             <Label row="0" col="0" :text="type[s.type].icon|fonticon" class="fa in-tx"

@@ -65,7 +65,7 @@
                     .then(r => {
                         if (r === true) this.$navigateTo(main, {clearHistory: true})
                         else if (r === '2fa') return this.twofa = true;
-                        else this.$showModal({template: `<TextView padding="20" editable="false" text="${r}" />`})
+                        else this.$showModal({template: `<TextView  padding="20" editable="false" text="${r}" />`})
                     })
             }
         },

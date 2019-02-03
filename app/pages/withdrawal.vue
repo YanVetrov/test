@@ -44,7 +44,7 @@
 
                     </CardView>
                 <FlexboxLayout padding="10" margin="10" justifyContent="center">
-                    <Button v-if="load" @tap="exchange" fontSize="20" fontWeight="bold" borderRadius="10" margin="20" padding="15 50 15 50" background="#4BCC67" color="white" class="fa" text="Continue"/>
+                    <Button v-if="load" @tap="exchange" fontSize="15" fontWeight="bold" borderRadius="10" margin="20" padding="15 50 15 50" background="#4BCC67" color="white" class="fa" text="Continue"/>
                     <ActivityIndicator v-else row="1" #activityIndicator :busy="true" width="70" height="70"
                                        class="activity-indicator"></ActivityIndicator>
                 </FlexboxLayout>
