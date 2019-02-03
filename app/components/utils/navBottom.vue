@@ -9,7 +9,7 @@
     <GridLayout :class="selectedTab==='shops' ? 'active' : ''" @tap="changeTab('shops')" rows="*,auto"
                 cols="auto" class="nav" col="1" row="0" width="33.33%">
       <Label row="0" :text="'fa-store' | fonticon" class="navIcon fa"></Label>
-      <Label row="1" text="My merchants" class="navText"></Label>
+      <Label row="1" text="Merchants" class="navText"></Label>
     </GridLayout>
 
     <GridLayout :class="selectedTab==='settings' ? 'active' : ''" @tap="changeTab('settings')" rows="*,auto"

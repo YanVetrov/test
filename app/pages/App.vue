@@ -32,7 +32,7 @@ export default {
         case 'wallets':
           return "Wallets";
         case 'shops':
-          return 'My merchants';
+          return 'Merchants';
         case 'settings':
           return 'Settings';
       }
