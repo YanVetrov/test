@@ -143,4 +143,33 @@ ActionBar {
 .user-picture {
   border-radius: 100;
 }
+.navBottom {
+  background-color: #f5f5f5;
+  border-color: #919191;
+  border-top-width: 0.4;
+}
+
+.navIcon {
+  horizontal-align: center;
+  vertical-align: center;
+  font-size: 24;
+  height: 25;
+  color: #666666;
+}
+
+.navText {
+  margin-bottom: 2;
+  font-size: 12;
+  /* color: #c43776; */
+  color: #666666;
+  horizontal-align: center;
+}
+
+.nav.active .navIcon {
+  color: #2148ff;
+}
+
+.nav.active .navText {
+  color: #2148ff;
+}
 </style>

@@ -12,10 +12,27 @@ import * as withdrawal from './store/withdrawal'
 import * as merchants from './store/merchants'
 import * as fee from './store/fee'
 import * as exchange from './store/exchange'
+
 Vue.use(require('vue-moment'));
 
 import {TNSFontIcon, fonticon} from 'nativescript-fonticon';
+import {messaging, Message} from "nativescript-plugin-firebase/messaging";
 
+messaging.registerForPushNotifications({
+    onPushTokenReceivedCallback(token) {
+        console.log("Firebase plugin received a push token-------------------------: " + token);
+    },
+
+    onMessageReceivedCallback(message) {
+        console.log("Push message received: " + message.title);
+    },
+
+    // Whether you want this plugin to automatically display the notifications or just notify the callback. Currently used on iOS only. Default true.
+    showNotifications: true,
+
+    // Whether you want this plugin to always handle the notifications when the app is in foreground. Currently used on iOS only. Default false.
+    showNotificationsWhenInForeground: true
+}).then(() => console.log("Registered for push"));
 TNSFontIcon.paths = {
     'fa': './fonts/font-awesome.css',
 };

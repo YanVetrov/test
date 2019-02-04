@@ -3,30 +3,30 @@
         <ActionBar title="Sign in to Azara" android:flat="true"/>
         <FlexboxLayout class="page">
             <PreviousNextView>
-            <StackLayout class="form" marginTop="100">
+                <StackLayout class="form" marginTop="100">
 
-                <Image class="logo" :src="'~/assets/images/logo.png'"/>
+                    <Image class="logo" :src="'~/assets/images/logo.png'"/>
 
-                <StackLayout class="input-field">
-                    <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
-                               autocapitalizationType="none"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
+                    <StackLayout class="input-field">
+                        <TextField v-model="login" class="input" hint="Login" keyboardType="email" autocorrect="false"
+                                   autocapitalizationType="none"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout class="input-field">
+                        <TextField v-model="password" #password class="input" hint="Password" secure="true"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+                    <StackLayout v-if="twofa" class="input-field">
+                        <TextField v-model="code" #password class="input" hint="2fa (OTP) code"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
+                    <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
+                                       class="activity-indicator"></ActivityIndicator>
                 </StackLayout>
-
-                <StackLayout class="input-field">
-                    <TextField v-model="password" #password class="input" hint="Password" secure="true"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-                <StackLayout v-if="twofa" class="input-field">
-                    <TextField v-model="code" #password class="input" hint="2fa (OTP) code"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-
-                <Button v-if="load" text="sign in" @tap="sign" class="btn btn-primary m-t-20"></Button>
-                <ActivityIndicator v-else row="1" #activityIndicator :busy="!load" width="70" height="70"
-                                   class="activity-indicator"></ActivityIndicator>
-            </StackLayout>
-                </PreviousNextView>
+            </PreviousNextView>
 
             <Label @tap="$navigateTo(reg)" class="login-label sign-up-label">
                 <FormattedString>
@@ -41,6 +41,7 @@
     import {mapActions, mapGetters} from 'vuex'
     import main from './App'
     import reg from './reg'
+    import {messaging, Message} from "nativescript-plugin-firebase/messaging";
 
     export default {
         props: ['fromReg'],
@@ -52,7 +53,7 @@
                 login: '',
                 password: '',
                 twofa: false,
-                code:null,
+                code: null,
             }
         },
         computed: {
@@ -61,7 +62,7 @@
         methods: {
             ...mapActions('user', {enter: 'login', check: 'check'}),
             sign() {
-                this.enter({login: this.login, password: this.password,code:this.code})
+                this.enter({login: this.login, password: this.password, code: this.code})
                     .then(r => {
                         if (r === true) this.$navigateTo(main, {clearHistory: true})
                         else if (r === '2fa') return this.twofa = true;
@@ -74,6 +75,8 @@
             }
         },
         created() {
+
+
             if (this.fromReg) {
                 this.login = this.fromReg.login;
                 this.password = this.fromReg.password;

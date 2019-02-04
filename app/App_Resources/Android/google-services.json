@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "304654694380",
+    "firebase_url": "https://plenary-matrix-189814.firebaseio.com",
+    "project_id": "plenary-matrix-189814",
+    "storage_bucket": "plenary-matrix-189814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304654694380:android:78ba34958e12640d",
+        "android_client_info": {
+          "package_name": "ai.azara.accepter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304654694380-dibos8ue7sl9ggi4e7o4qltc5v4i1n5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTOrLmyL9pwbWc8ViOYsxNvxcW-EnCv9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
